@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQS</title>
+
+    <!--vendor css ================================================== -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/vendor.css"> -->
+
+    <!-- Link Swiper's CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> -->
+
+    <!--Bootstrap ================================================== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+
+    <!-- Style Sheet ================================================== -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Google Fonts ================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Raleway:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- script ================================================== -->
+    <!-- <script src="js/modernizr.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="js/home.js"></script>
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#header-nav" tabindex="0">
+
+
+    <!-- Navigation  -->
+    <nav class="navbar navbar-expand-lg  navbar-light container-fluid py-3 position-fixed ">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">HOTEL QUEENSLAND</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav align-items-center justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active px-3" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="rooms.html">Rooms</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="#process">Process</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex mt-5 mt-lg-0 ps-lg-5 align-items-center justify-content-center ">
+                        <ul class="navbar-nav justify-content-end align-items-center">
+                            <li class="nav-item">
+                                <a class="nav-link px-3" href="login.html"> Login </a>
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn-outline-primary nav-button mx-3"> <a class="nav-link px-3"
+                                href="register.html"> Register </a> </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hero section start  -->
+    <!-- <section id="hero" class=" position-relative overflow-hidden">
+        <div class="pattern-overlay pattern-right position-absolute">
+            <img src="images/hero-pattern-right.png" alt="pattern">
+        </div>
+        <div class="pattern-overlay pattern-left position-absolute">
+            <img src="images/hero-pattern-left.png" alt="pattern">
+        </div>
+        <div class="hero-content container text-center">
+            <div class="row">
+                <div class="detail mb-4">
+                    <h1 class="">Find your <span class="text-primary"> NEXT HOME </span> </h1>
+                    <p class="hero-paragraph">One step close to Paradise.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Carousel -->
+    <section id="carousel">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/hotel-queensland-4.jpg" class="d-block carousel-img w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/hotel-queensland-2.jpg" class="d-block carousel-img w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/hotel-queensland-3.jpg" class="d-block carousel-img w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- search section start  -->
+    <section id="search">
+        <div class="container search-block p-5">
+
+            <form class="row">
+                <div class="col-12 col-md-6 col-lg-3 mt-4 mt-lg-0">
+                    <label for="checkinDate" class="label-style text-capitalize form-label"> Check In Date</label>
+                    <div class="input-group  date">
+                        <input type="date" class="form-control p-3 " id="checkinDate"
+                            placeholder="Select Checkin Date" />
+                        <!-- <span class="search-icon-position position-absolute p-3 ">
+                            <i class="fas fa-calendar-alt"></i>
+                        </span> -->
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-4 mt-lg-0">
+                    <label for="checkoutDate" class="label-style text-capitalize form-label">Check Out Date</label>
+                    <div class="input-group date">
+                        <input type="date" class="form-control p-3 position-relative" id="checkoutDate"
+                            placeholder="Select Checkout Date" />
+                        <!-- <span class="search-icon-position position-absolute p-3 ">
+                            <i class="fas fa-calendar-alt"></i>
+                        </span> -->
+
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-4 mt-lg-0">
+                    <label for="guests" class="label-style text-capitalize form-label">Guests</label>
+                    <div class="input-group date">
+                        <input type="number" class="form-control p-3" id="guests" placeholder="Enter Total Guest" />
+
+                        <span class="input-group-append">
+                            <span class="search-icon-position position-absolute p-3">
+                                <i class="fas fa-users"></i>
+                            </span>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-4 mt-lg-0">
+                    <label for="rooms" class="label-style text-capitalize form-label">Rooms</label>
+                    <div class="input-group date">
+                        <input type="number" class="form-control p-3" id="rooms" placeholder="Enter Total Room" />
+
+                        <span class="input-group-append">
+                            <span class="search-icon-position position-absolute p-3">
+                                <i class="fas fa-hotel"></i>
+                            </span>
+                        </span>
+
+                    </div>
+                </div>
+            </form>
+
+            <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-primary " type="button" href="rooms.html">
+                    <a class="px-3 white-txt" href="rooms.html"> Check Availability </a>
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Booking Process -->
+    <section id="process">
+        <div class=" process-content container">
+            <h2 class=" text-center my-5">Our Room Booking <span class="text-primary"> Process </span> </h2>
+            <img class="progress-img" src="images/process-line.png" alt="">
+            <div class="row">
+                <div class="col-6 col-lg-3 text-start my-4">
+                    <h5 class="text-uppercase"> Check Room Availability </h5>
+                    <p>Sed euismod mauris corper libero.</p>
+                </div>
+
+                <div class="col-6 col-lg-3 text-start my-4">
+                    <h5 class="text-uppercase"> Pick Your Room </h5>
+                    <p>Nisi maecenas fermentum neque.</p>
+                </div>
+
+                <div class="col-6 col-lg-3 text-start my-4">
+                    <h5 class="text-uppercase"> Book & Confirm </h5>
+                    <p>Mauris corper accumsan urna sed.</p>
+                </div>
+
+                <div class="col-6 col-lg-3 text-start my-4">
+                    <h5 class="text-uppercase"> Finish process </h5>
+                    <p>Orci duis ut lectus metus nam sette.</p>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="contact">
+
+        <div class="container  py-5 my-5">
+
+            <div class="col-md-12">
+                <h2 class=" text-center my-5"><span class="text-primary"> Contact Us </span> </h2>
+            </div>
+
+            <div class="row">
+
+                <!-- Contact Form -->
+                <div class="col-md-6">
+                    <div class="col-md-12 col-12 mb-3">
+                        <label for="fullname" class="label-style text-capitalize form-label">Full Name</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control p-3" id="fullname" placeholder="Enter full name "
+                                name="fullname" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-12">
+                        <label for="email" class="label-style text-capitalize form-label">Email Address</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control p-3" id="email" placeholder="Enter email address "
+                                name="email" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-12 mb-3">
+                        <label for="message" class="label-style text-capitalize form-label">Message</label>
+                        <div class="input-group date">
+                            <textarea class="form-control p-3" id="message" placeholder="Enter your message"
+                                name="message" rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button class="btn btn-primary " type="button">Send Message</button>
+                    </div>
+
+                </div>
+
+                <!-- Address -->
+                <div class="col-md-6 address">
+
+
+                    <div class="col-md-6 offset-md-3">
+                        <div class="col-md-12">
+                            <p><i class="fas fa-map-marker-alt"></i> <span class="ms-2">29 Ann Street, Brisbane,
+                                    QLD</span>
+                            </p>
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><i class="fas fa-phone"></i> <span class="ms-2"></span><a href="tel:+6134567890">
+                                    (61) 456-7890</a>
+                            </p>
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><i class="fas fa-envelope"></i> <span class="ms-2"><a
+                                        href="mailto:info@hotelqueensland.com.au">info@hotelqueensland.com.au</a></span>
+                            </p>
+                        </div>
+
+                        <hr>
+                    </div>
+
+
+
+
+                    <div class="col-md-12">
+                        <ul class="social-media-list">
+                            <li><a href="#" target="_blank" class="contact-icon">
+                                    <i class="fab fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#" target="_blank" class="contact-icon">
+                                    <i class="fab fa-instagram-square"></i></a>
+                            </li>
+                            <li><a href="#" target="_blank" class="contact-icon">
+                                    <i class="fab fa-youtube"></i></a>
+                            </li>
+                            <li><a href="#" target="_blank" class="contact-icon">
+                                    <i class="fab fa-tiktok"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer Section Starts -->
+    <section id="footer">
+        <!-- <div class="container footer-container mt-5">
+            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 my-5 py-5 ">
+            </footer>
+        </div> -->
+
+
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center border-top"></footer>
+
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 pt-4">
+                <div class="col-md-6 d-flex align-items-center">
+                    <p>© 2023 Hotel Queensland - All rights reserved</p>
+
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-end">
+                    <p class="">© 2023 Designed By:<a href="https://templatesjungle.com/" class="website-link"
+                            target="_blank"> <b><u>CQU Student</u></b></a></p>
+                </div>
+
+            </footer>
+        </div>
+    </section>
+
+
+
+
+    <!-- script ================================================== -->
+    <!-- <script src="js/jquery-1.11.0.min.js"></script> -->
+    <!-- <script src="js/plugins.js"></script>-->
+    <script src="js/home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <!-- <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+.carousel-img-r {
+    height: 200px;
+    width: 400px;
+    object-fit: cover;
+    padding: 5px 48px;
+  }
+
+  .carousel-inner{
+    padding: 15px;
+    margin-top: -35px;
+  }
+
+  .pricing-detail {
+    border: 1px solid #E4E4E4;
+    border-radius: 10px;
+    height: 545px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hero-content{
+    padding: 100px 0px 10px;
+  }
