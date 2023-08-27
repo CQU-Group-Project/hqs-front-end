@@ -116,66 +116,168 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Dashboard</h1>
+                    <h1 class="mt-4">Employee Add</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Title</li>
+                        <li class="breadcrumb-item active">Dashboad/ Employee</li>
                     </ol>
 
                     <div class="card mb-4">
-                        <div class="card-body">
-                            <p>Your Contents Here</p>
+                        <div class="card-body" style="padding: 40px;">
+                            <form name="employeeCreateForm" id="employeeCreateForm">
+
+                                <div class="mb-3">
+                                    <!-- First name and Last name -->
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <label for="firstname" class="label-style text-capitalize form-label">First
+                                                Name <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control p-3" id="firstName"
+                                                    placeholder="Enter first name " name="firstName" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <label for="lastname" class="label-style text-capitalize form-label">Last
+                                                Name <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control p-3" id="lastName"
+                                                    placeholder="Enter last name " name="lastName" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <!-- Email and phone number -->
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <label for="email" class="label-style text-capitalize form-label">Email
+                                                Address</label>
+                                            <div class="input-group date">
+                                                <input type="email" class="form-control p-3" id="email"
+                                                    placeholder="Enter email address " name="email" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <label for="phone" class="label-style text-capitalize form-label">Phone
+                                                Number <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <!-- <input type="text" class="form-control p-3" id="phone"
+                                                    placeholder="Enter Phone Number " name="phone" required /> -->
+                                                <input type="tel" class="form-control p-3" id="phone" name="phone"
+                                                    pattern="[0-9]{10}" placeholder="Enter Phone Number Eg. 0451909197"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <!-- State and suburb -->
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <label for="state" class="label-style text-capitalize form-label">State
+                                                <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <select class="form-select p-3" id="state" name="state" required>
+                                                    <option value="" disabled selected>Select a state</option>
+                                                    <option value="NSW">New South Wales</option>
+                                                    <option value="VIC">Victoria</option>
+                                                    <option value="QLD">Queensland</option>
+                                                    <option value="WA">Western Australia</option>
+                                                    <option value="SA">South Australia</option>
+                                                    <option value="TAS">Tasmania</option>
+                                                    <option value="NT">Northern Territory</option>
+                                                    <option value="ACT">Australian Capital Territory</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-12">
+                                            <label for="city" class="label-style text-capitalize form-label">Suburb
+                                                <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control p-3" id="city"
+                                                    placeholder="Enter suburb" name="city" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <!-- Postcode and street -->
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <label for="postcode"
+                                                class="label-style text-capitalize form-label">Postcode
+                                                <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="number" class="form-control p-3" id="postalCode"
+                                                    placeholder="Enter postcode " name="postalCode" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <label for="address" class="label-style text-capitalize form-label">Street
+                                                <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control p-3" id="address"
+                                                    placeholder="Enter street" name="address" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <!-- Position and Hired Date -->
+                                    <div class="row">
+                                        <div class="col-md-4 col-12">
+                                            <label for="position"
+                                                class="label-style text-capitalize form-label">Position
+                                                <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="position" class="form-control p-3" id="position"
+                                                    placeholder="Enter position " name="position" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 col-12">
+                                            <label for="hiredDate" class="label-style text-capitalize form-label">Hired
+                                                Date <span class="required">*</span></label>
+                                            <div class="input-group  date">
+                                                <input type="date" class="form-control p-3 " id="hireDate"
+                                                    name="hireDate" placeholder="Select Hired Date" required/>
+                                            </div>
+
+                                            <span id="passwordError" style="color: rgba(255, 0, 0, 0.639);"></span>
+                                        </div>
+
+                                        <div class="col-md-4 col-12">
+                                            <label for="salary" class="label-style text-capitalize form-label">Salary
+                                                <span class="required">*</span></label>
+                                            <div class="input-group  date">
+                                                <input type="number" class="form-control p-3 " id="salary"
+                                                    name="salary" placeholder="Enter salary" required/>
+                                            </div>
+
+                                            <span id="passwordError" style="color: rgba(255, 0, 0, 0.639);"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid gap-2 mt-4">
+                                    <button id="registerBtn" class="btn btn-primary " type="submit">Add
+                                        Employee</button>
+                                </div>
+
+                                <div id="snackbar"></div>
+                            </form>
                         </div>
                     </div>
 
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-table me-1"></i>
-                            DataTable Example
-                        </div>
-                        <div class="card-body">
-                            <table id="datatablesSimple">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>63</td>
-                                        <td>2011/07/25</td>
-                                        <td>$170,750</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
                 </div>
             </main>
 
@@ -186,7 +288,7 @@
     <script src="../../assets/js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-    <script src="../../assets/js/datatables.js"></script>
+    <script src="../../assets/js/employee.js"></script>
 </body>
 
 </html>
