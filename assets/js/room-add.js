@@ -2,18 +2,14 @@
 
 var baseurl = "http://localhost:8088/api/";
 
-var errorMsg = false;
-
 
 document.addEventListener("DOMContentLoaded", function () {
+    let roomCreateBtn = document.getElementById("createBtn");
 
-    let loginBtn = document.getElementById("loginBtn");
-
-
-    if (loginBtn) {
-        loginBtn.addEventListener('click', event => {
+    if (roomCreateBtn) {
+        roomCreateBtn.addEventListener('click', event => {
             event.preventDefault();
-            login();
+            createRoom();
         });
     }
 
@@ -21,36 +17,43 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 
-function login() {
+function createRoom() {
 
-
-    var url = baseurl + "user/login";
+    var url = baseurl + "room";
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    const formtosubmit = document.getElementById('loginForm');
+    const formtosubmit = document.getElementById('roomCreateForm');
     const formData = new FormData(formtosubmit);
-    const formJSON = Object.fromEntries(formData.entries());
+    // const formJSON = Object.fromEntries(formData.entries());
+
+    // Convert FormData to JSON object
+    var formJSON = {};
+    formData.forEach((value, key) => {
+        formJSON[key] = value;
+    });
+
+    formJSON.roomTypeDto = {
+        "id": 0,
+        "name": formJSON['name'],
+        "description": formJSON['description'],
+        "maxOccupancy": formJSON['maxOccupancy'],
+        "amentities": formJSON['amentities']
+    };
+    formJSON.available = true;
+    formJSON.clean = true;
 
     var jsonString = JSON.stringify(formJSON, null, 2);
+
+    console.log(jsonString);
     xhr.send(jsonString);
 
     xhr.onreadystatechange = function () {
         var response = xhr.responseText;
         var responseObj = JSON.parse(response);
-
         if (xhr.readyState === 4) {
 
-            var response = xhr.responseText;
-            var responseObj = JSON.parse(response);
-
-            // Check if the login was successful before storing in local storage
-            if (responseObj.message == "Successful") {
-                // Store the response object in local storage
-                localStorage.setItem('userResponse', JSON.stringify(responseObj.detail));
-
-            }
-
+            console.log(responseObj);
             snackBar(responseObj);
 
         }
@@ -60,10 +63,7 @@ function login() {
 }
 
 
-
 function snackBar(obj) {
-
-    console.log(obj);
     // Get the snackbar DIV
     var x = document.getElementById("snackbar");
 
@@ -75,22 +75,15 @@ function snackBar(obj) {
         x.className = x.className.replace("error", "");
         x.className = x.className.replace("success", "")
         if (obj.message == "Successful") {
-
-            if (obj.detail.role == 'ADMIN') {
-                window.location.href = "admin/dashboard.html"
-                // window.open("admin/dashboard.html")
-            } else {
-                window.open("index.html", "_self");
-            }
-
+            window.open("room-list.html", "_self");
         }
-    }, 1000);
+    }, 2000);
 }
 
 function validateForm() {
-    const loginForm = document.getElementById('loginForm');
-    const loginbtn = document.getElementById('loginBtn');
-    const requiredFields = loginForm.querySelectorAll('[required]');
+    const createForm = document.getElementById('roomCreateForm');
+    const createBtn = document.getElementById('createBtn');
+    const requiredFields = createForm.querySelectorAll('[required]');
 
     let isValid = true;
     requiredFields.forEach(field => {
@@ -99,10 +92,11 @@ function validateForm() {
         }
     });
 
-    if (isValid && !errorMsg) {
-        loginbtn.removeAttribute('disabled');
+
+    if (isValid) {
+        createBtn.removeAttribute('disabled');
     } else {
-        loginbtn.setAttribute('disabled', 'disabled');
+        createBtn.setAttribute('disabled', 'disabled');
     }
 
 

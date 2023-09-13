@@ -11,7 +11,7 @@ var errorMsg = false;
 // }
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Register guest called............")
+
     let registerCreateBtn = document.getElementById("registerBtn");
     // let passwordInput = document.getElementById('password');
     const passwordConfirmInput = document.getElementById('confirmPassword');
@@ -110,9 +110,6 @@ function validateForm() {
             isValid = false;
         }
     });
-
-    console.log(isValid);
-    console.log("error msg", errorMsg)
 
     if (isValid && !errorMsg) {
         registerBtn.removeAttribute('disabled');
