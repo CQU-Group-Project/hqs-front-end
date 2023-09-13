@@ -220,11 +220,11 @@ a:hover {
   --bs-btn-close-focus-shadow: none;
 }
 
-.white-txt{
+.white-txt {
   color: var(--white-color);
 }
 
-.required{
+.required {
   color: var(--red-color);
 }
 
@@ -500,7 +500,7 @@ iconify-icon.pricing-lable-icon {
 .pricing-detail {
   border: 1px solid #E4E4E4;
   border-radius: 10px;
-  height: 580px;
+  /* height: 580px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -661,31 +661,32 @@ input#checkin::-webkit-calendar-picker-indicator {
   /* background: none; */
 }
 
-.fw-6{
+.fw-6 {
   font-weight: 600;
 }
 
 /* Google map */
-.responsive-map{
+.responsive-map {
   overflow: hidden;
-  padding-bottom:56.25%;
-  position:relative;
-  height:0;
-  }
-  .responsive-map iframe{
-  left:0;
-  top:0;
-  height:100%;
-  width:100%;
-  position:absolute;
-  }
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
 
-  .address{
-    padding: 80px 25px 25px 25px;
-    font-size: 17px;
-  }
+.responsive-map iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
 
-  
+.address {
+  padding: 80px 25px 25px 25px;
+  font-size: 17px;
+}
+
+
 /* Social Media Icons */
 .social-media-list {
   position: relative;
@@ -701,7 +702,7 @@ input#checkin::-webkit-calendar-picker-indicator {
 }
 
 .social-media-list li {
-  position: relative; 
+  position: relative;
   display: inline-block;
   height: 60px;
   width: 60px;
@@ -710,7 +711,7 @@ input#checkin::-webkit-calendar-picker-indicator {
   border-radius: 50%;
   color: #fff;
   background-color: var(--light-text-color);
-  cursor: pointer; 
+  cursor: pointer;
   transition: all .2s ease-in-out;
 }
 
@@ -729,13 +730,13 @@ input#checkin::-webkit-calendar-picker-indicator {
 }
 
 .social-media-list li:hover {
-  background-color: #fff; 
+  background-color: #fff;
 }
 
 .social-media-list li:hover:after {
-  opacity: 1;  
+  opacity: 1;
   transform: scale(1.12);
-  transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65);
+  transition-timing-function: cubic-bezier(0.37, 0.74, 0.15, 1.65);
 }
 
 .social-media-list li:hover a {
@@ -749,7 +750,7 @@ input#checkin::-webkit-calendar-picker-indicator {
   text-align: center;
 }
 
-.text-justify{
+.text-justify {
   text-align: justify;
 }
 
@@ -787,51 +788,55 @@ input#checkin::-webkit-calendar-picker-indicator {
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
   from {
-      bottom: 0;
-      opacity: 0;
+    bottom: 0;
+    opacity: 0;
   }
+
   to {
-      bottom: 30px;
-      opacity: 1;
+    bottom: 30px;
+    opacity: 1;
   }
 }
 
 @keyframes fadein {
   from {
-      bottom: 0;
-      opacity: 0;
+    bottom: 0;
+    opacity: 0;
   }
+
   to {
-      bottom: 30px;
-      opacity: 1;
+    bottom: 30px;
+    opacity: 1;
   }
 }
 
 @-webkit-keyframes fadeout {
   from {
-      bottom: 30px;
-      opacity: 1;
+    bottom: 30px;
+    opacity: 1;
   }
+
   to {
-      bottom: 0;
-      opacity: 0;
+    bottom: 0;
+    opacity: 0;
   }
 }
 
 @keyframes fadeout {
   from {
-      bottom: 30px;
-      opacity: 1;
+    bottom: 30px;
+    opacity: 1;
   }
+
   to {
-      bottom: 0;
-      opacity: 0;
+    bottom: 0;
+    opacity: 0;
   }
 }
 
 /* disabled button */
 
-.btn:disabled{
+.btn:disabled {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
 }
