@@ -28,19 +28,26 @@
 
         <div class="ms-auto">
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Admin<i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="../dashboard.html">Dashboard</a></li>
 
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li><a class="dropdown-item" href="">Logout</a></li>
-                    </ul>
-                </li>
             </ul>
+
+            <div class="d-flex mt-5 mt-lg-0 ps-lg-5 align-items-center justify-content-center ">
+
+                <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" id="logout">
+                    <li class="nav-item dropdown">
+                        <a class=" dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="text-decoration: none;
+                                            color: white;
+                                        ">
+                            <span id="username">Deependra</span>
+                            <i class="fas fa-user fa-fw"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" id="logout-employee">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
         </div>
     </nav>
 
@@ -121,7 +128,17 @@
 
                     <div class="card mb-4">
 
-                        <div class="card-body">
+                        <div class="card-body" id="spinner"> 
+                            <div class="loader-circle" >
+                                <p class="loader-content">LOADING</p>
+                                <div class="loader-line-mask">
+                                    <div class="loader-line"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card-body" id="table">
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
@@ -134,6 +151,7 @@
                                         <th>Salary</th>
                                         <th>Status</th>
                                         <th>Created Date</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -147,6 +165,7 @@
                                         <th>Salary</th>
                                         <th>Status</th>
                                         <th>Created Date</th>
+                                        <th>Action</th>
                                     </tr>
                                 </tfoot>
                                 <tbody id="dataTableBody">

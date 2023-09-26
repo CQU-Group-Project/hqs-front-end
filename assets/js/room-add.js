@@ -77,7 +77,7 @@ function snackBar(obj) {
         if (obj.message == "Successful") {
             window.open("room-list.html", "_self");
         }
-    }, 2000);
+    }, 3000);
 }
 
 function validateForm() {

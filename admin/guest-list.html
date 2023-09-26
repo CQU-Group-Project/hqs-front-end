@@ -30,21 +30,31 @@
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href=""><i
                 class="fas fa-bars"></i></button>
 
+
         <div class="ms-auto">
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Admin<i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="../admin/dashboard.html">Dashboard</a></li>
 
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li><a class="dropdown-item" href="">Logout</a></li>
-                    </ul>
-                </li>
             </ul>
+
+            <div class="d-flex mt-5 mt-lg-0 ps-lg-5 align-items-center justify-content-center ">
+
+                <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" id="logout">
+                    <li class="nav-item dropdown">
+                        <a class=" dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="text-decoration: none;
+                                    color: white;
+                                ">
+                            <span id="username">Deependra</span>
+                            <i class="fas fa-user fa-fw"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" id="logout-employee">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+
+            </div>
         </div>
     </nav>
 
@@ -114,18 +124,33 @@
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            <main>
+            <main id="content">
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Guest</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard/ Guest List</li>
                     </ol>
 
-    
+
+
+
+
 
                     <div class="card mb-4">
-                     
-                        <div class="card-body">
+
+
+                        <div class="card-body" id="spinner"> 
+                            <div class="loader-circle" >
+                                <p class="loader-content">LOADING</p>
+                                <div class="loader-line-mask">
+                                    <div class="loader-line"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="card-body" id="table">
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
@@ -147,7 +172,7 @@
                                         <th>Created Date</th>
                                     </tr>
                                 </tfoot>
-                                <tbody id="dataTableBody" >
+                                <tbody id="dataTableBody">
 
                                     <!-- <span>
                                         <tr>

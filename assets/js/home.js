@@ -1,8 +1,27 @@
 var baseurl = "http://localhost:8088/api/";
 
+
 var errorMsg = false;
 
 var savedUserResponse = localStorage.getItem('userResponse');
+
+// Get today's date
+const today = new Date().toISOString().split('T')[0];
+
+// Set min date for checkInDate input
+document.getElementById('checkInDate').setAttribute('min', today);
+
+// Add an event listener to checkInDate input to update min date for checkOutDate
+document.getElementById('checkInDate').addEventListener('change', function () {
+    // Get the selected checkInDate
+    const selectedCheckInDate = this.value;
+    // Calculate the next day
+    const nextDay = new Date(selectedCheckInDate);
+    nextDay.setDate(nextDay.getDate() + 1);
+    // Set min date for checkOutDate input as the next day
+    document.getElementById('checkOutDate').setAttribute('min', nextDay.toISOString().split('T')[0]);
+});
+
 
 if (!savedUserResponse) {
     document.getElementById('login').style.display = 'block';
@@ -51,6 +70,7 @@ if (employeeLogoutLink) {
 document.addEventListener("DOMContentLoaded", function () {
 
     let searchBtn = document.getElementById("searchBtn");
+    let sendMsgBtn = document.getElementById("sendMsgBtn");
 
     if (searchBtn) {
         searchBtn.addEventListener('click', event => {
@@ -59,7 +79,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    validateForm();
+    if (sendMsgBtn) {
+        sendMsgBtn.addEventListener('click', event => {
+            event.preventDefault();
+            sendQuery();
+        });
+    }
+
+    if (searchBtn)
+        validateForm();
 })
 
 
@@ -91,9 +119,37 @@ function searchRoom() {
                 // Store the response object in local storage
                 localStorage.setItem('roomAvailability', JSON.stringify(responseObj.detail));
                 localStorage.setItem('searchRequest', jsonString);
+                localStorage.setItem("sortOrder", 'Relevance');
                 window.open("rooms.html", "_self");
 
             }
+
+        }
+    };
+
+
+}
+
+
+function sendQuery() {
+
+    var url = baseurl + "query";
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    const formtosubmit = document.getElementById('queryForm');
+    const formData = new FormData(formtosubmit);
+    const formJSON = Object.fromEntries(formData.entries());
+    var jsonString = JSON.stringify(formJSON, null, 2);
+    xhr.send(jsonString);
+
+    xhr.onreadystatechange = function () {
+        var response = xhr.responseText;
+        var responseObj = JSON.parse(response);
+        if (xhr.readyState === 4) {
+
+            console.log(responseObj);
+            snackBar(responseObj);
 
         }
     };
@@ -123,4 +179,21 @@ function validateForm() {
     requiredFields.forEach(field => {
         field.addEventListener('input', validateForm);
     });
+}
+
+function snackBar(obj) {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+
+    x.className = obj.message == "Successful" ? "success" : "error";
+    x.innerHTML = obj.message;
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () {
+        x.className = x.className.replace("error", "");
+        x.className = x.className.replace("success", "")
+        if (obj.message == "Successful") {
+            window.open("index.html", "_self");
+        }
+    }, 1000);
 }

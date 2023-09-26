@@ -5,7 +5,14 @@ var baseUrl = "http://localhost:8088/api/"
 var guestList = [];
 var datatablesSimple;
 
+var spinner = document.getElementById("spinner");
+var table = document.getElementById("table");
+spinner.style.display = "block";
+table.style.display = "none"
+
+
 window.addEventListener('DOMContentLoaded', event => {
+
 
     xmlhttp = new XMLHttpRequest();
     getGuestList();
@@ -44,6 +51,13 @@ function getGuestList() {
                 });
 
                 new simpleDatatables.DataTable(datatablesSimple);
+
+                setTimeout(() => {
+                    spinner.style.display = "none";
+                    table.style.display = "block"
+                }, 200);
+
+
             }
         }
     };

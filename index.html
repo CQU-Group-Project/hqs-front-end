@@ -118,6 +118,7 @@
         </div>
     </section> -->
 
+
     <!-- Carousel -->
     <section id="carousel">
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -218,22 +219,22 @@
             <div class="row">
                 <div class="col-6 col-lg-3 text-start my-4">
                     <h5 class="text-uppercase"> Check Room Availability </h5>
-                    <p>Sed euismod mauris corper libero.</p>
+                    <!-- <p>Sed euismod mauris corper libero.</p> -->
                 </div>
 
                 <div class="col-6 col-lg-3 text-start my-4">
-                    <h5 class="text-uppercase"> Pick Your Room </h5>
-                    <p>Nisi maecenas fermentum neque.</p>
+                    <h5 class="text-uppercase"> Select Your Room </h5>
+                    <!-- <p>Nisi maecenas fermentum neque.</p> -->
                 </div>
 
                 <div class="col-6 col-lg-3 text-start my-4">
                     <h5 class="text-uppercase"> Book & Confirm </h5>
-                    <p>Mauris corper accumsan urna sed.</p>
+                    <!-- <p>Mauris corper accumsan urna sed.</p> -->
                 </div>
 
                 <div class="col-6 col-lg-3 text-start my-4">
                     <h5 class="text-uppercase"> Finish process </h5>
-                    <p>Orci duis ut lectus metus nam sette.</p>
+                    <!-- <p>Orci duis ut lectus metus nam sette.</p> -->
                 </div>
 
             </div>
@@ -252,37 +253,54 @@
 
             <div class="row">
 
+
+
                 <!-- Contact Form -->
                 <div class="col-md-6">
-                    <div class="col-md-12 col-12 mb-3">
-                        <label for="fullname" class="label-style text-capitalize form-label">Full Name</label>
-                        <div class="input-group date">
-                            <input type="text" class="form-control p-3" id="fullname" placeholder="Enter full name "
-                                name="fullname" />
+
+                    <form name="queryForm" id="queryForm">
+                        <div class="col-md-12 col-12 mb-3">
+                            <label for="fullname" class="label-style text-capitalize form-label">Full Name</label>
+                            <div class="input-group date">
+                                <input type="text" class="form-control p-3" id="fullname" placeholder="Enter full name "
+                                    name="fullname" />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-12 col-12">
-                        <label for="email" class="label-style text-capitalize form-label">Email Address</label>
-                        <div class="input-group date">
-                            <input type="text" class="form-control p-3" id="email" placeholder="Enter email address "
-                                name="email" />
+                        <div class="col-md-12 col-12">
+                            <label for="email" class="label-style text-capitalize form-label">Email Address</label>
+                            <div class="input-group date">
+                                <input type="text" class="form-control p-3" id="email"
+                                    placeholder="Enter email address " name="email" />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-12 col-12 mb-3">
-                        <label for="message" class="label-style text-capitalize form-label">Message</label>
-                        <div class="input-group date">
-                            <textarea class="form-control p-3" id="message" placeholder="Enter your message"
-                                name="message" rows="4"></textarea>
+                        <div class="col-md-12 col-12">
+                            <label for="phone" class="label-style text-capitalize form-label">Phone
+                                Number </label>
+                            <div class="input-group date">
+                                <input type="tel" class="form-control p-3" id="phone" name="phoneNo" pattern="[0-9]{10}"
+                                    placeholder=" Eg. 0451925197" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="d-grid gap-2 mt-4">
-                        <button class="btn btn-primary " type="button">Send Message</button>
-                    </div>
+                        <div class="col-md-12 col-12 mb-3">
+                            <label for="message" class="label-style text-capitalize form-label">Message</label>
+                            <div class="input-group date">
+                                <textarea class="form-control p-3" id="message" placeholder="Enter your message"
+                                    name="message" rows="2"></textarea>
+                            </div>
+                        </div>
 
+                        <div class="d-grid gap-2 mt-4">
+                            <button class="btn btn-primary " id="sendMsgBtn" type="button">Send Message</button>
+                        </div>
+
+                        <div id="snackbar"></div>
+
+                    </form>
                 </div>
+                <!-- </form> -->
 
                 <!-- Address -->
                 <div class="col-md-6 address">
@@ -330,6 +348,7 @@
                         </ul>
                     </div>
                 </div>
+
 
             </div>
         </div>

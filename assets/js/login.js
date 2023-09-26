@@ -76,7 +76,7 @@ function snackBar(obj) {
         x.className = x.className.replace("success", "")
         if (obj.message == "Successful") {
 
-            if (obj.detail.role == 'ADMIN') {
+            if (obj.detail.role == 'ADMIN' || obj.detail.role == 'MANAGER') {
                 window.location.href = "admin/dashboard.html"
                 // window.open("admin/dashboard.html")
             } else {

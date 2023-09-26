@@ -25,26 +25,34 @@
     <!-- Side navbar -->
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="../admin/dashboard.html">Hotel Queensland</a>
+        <a class="navbar-brand ps-3" href="../dashboard.html">Hotel Queensland</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href=""><i
                 class="fas fa-bars"></i></button>
 
         <div class="ms-auto">
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Admin<i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="../admin/dashboard.html">Dashboard</a></li>
 
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li><a class="dropdown-item" href="">Logout</a></li>
-                    </ul>
-                </li>
             </ul>
+
+            <div class="d-flex mt-5 mt-lg-0 ps-lg-5 align-items-center justify-content-center ">
+
+                <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" id="logout">
+                    <li class="nav-item dropdown">
+                        <a class=" dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="text-decoration: none;
+                                            color: white;
+                                        ">
+                            <span id="username">Deependra</span>
+                            <i class="fas fa-user fa-fw"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" id="logout-employee">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+            </div>
         </div>
     </nav>
 

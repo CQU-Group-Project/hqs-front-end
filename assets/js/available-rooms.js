@@ -11,8 +11,9 @@ var userObj = JSON.parse(userObject);
 var period = document.getElementById('period');
 
 
-console.log(roomObj);
-console.log(requestObj);
+// Showing Filter result and total results
+var filteredData = document.getElementById('showing');
+filteredData.textContent = "Showing " + roomObj.length + " results"
 
 
 function getPeriod() {
@@ -46,7 +47,7 @@ var pricingCard = document.getElementById("pricing-container");
 var content = '';
 
 for (let i = 0; i < roomObj.length; i++) {
-    content += '<div class="col-lg-4 col-sm-12 col-12 pb-4"> <div class=" pricing-detail py-5 text-center"> <div class="row"> <div class="col-md-12"> <section id="carousel"> <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel"> <div class="carousel-inner"> <div class="carousel-item active"> <img src="assets/images/hotel-queensland-4.jpg" class="d-block carousel-img-r w-100" alt="..."> </div> <div class="carousel-item"> <img src="assets/images/hotel-queensland-2.jpg" class="d-block carousel-img-r w-100" alt="..."> </div> <div class="carousel-item"> <img src="assets/images/hotel-queensland-3.jpg" class="d-block carousel-img-r w-100" alt="..."> </div> </div> <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span> </button> <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="visually-hidden">Next</span> </button> </div> </section> </div>';
+    content += '<div class="col-lg-4 col-sm-12 col-12 pb-4"> <div class=" pricing-detail py-5 text-center"> <div class="row"> <div class="col-md-12"> <section id="carousel"> <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel"> <div class="carousel-inner"> <div class="carousel-item active"> <img src="assets/images/room-2.jpg" class="d-block carousel-img-r w-100" alt="..."> </div> <div class="carousel-item"> <img src="assets/images/room-1.jpg" class="d-block carousel-img-r w-100" alt="..."> </div> <div class="carousel-item"> <img src="assets/images/room-1.jpg" class="d-block carousel-img-r w-100" alt="..."> </div> </div> <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span> </button> <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="visually-hidden">Next</span> </button> </div> </section> </div>';
 
     for (let j = 0; j < roomObj[i].rooms.length; j++) {
         content += '<div class="content monthly pt-2 text-center"> <p class="fw-6 mb-1">' + roomObj[i].rooms[j].roomType.name + '- (' + roomObj[i].rooms[j].roomNumber + ')' + ' <span style="font-weight:300">  @ $' + roomObj[i].rooms[j].price + '/night </span> </p> </div> <div class="content yearly pt-2"> </div>  <div class="content yearly pt-2"> <p> ' + getAmenitites(roomObj[i].rooms[j].roomType.amentities) + ' </p> </div>'
@@ -97,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const button = document.getElementById(`book-now-${i}`);
 
         if (!userObj) {
-            console.log('YESSSSSSSSSS')
             button.setAttribute('disabled', 'true');
         } else if (userObj.role != 'GUEST') {
             button.setAttribute('disabled', 'true');
@@ -153,6 +153,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function confirmBooking(selectedRoomObj) {
+
+    var confirmation = document.getElementById('booking-success');
+    var confirmationContent = 'Processing . . .';
+    confirmation.innerHTML = confirmationContent;
     console.log(selectedRoomObj)
     var url = baseurl + "booking/confirm";
     var xhr = new XMLHttpRequest();
@@ -218,3 +222,65 @@ function snackBar(obj) {
     }, 1000);
 }
 
+
+//To sort room
+
+const selectElement = document.getElementById("filter-rooms");
+selectElement.addEventListener("change", function (event) {
+    // Get the selected value
+    const selectedValue = event.target.value;
+    // Get the selected value
+
+    // Save the selected value to localStorage
+    localStorage.setItem("sortOrder", selectedValue);
+
+    filterRoom(selectedValue);
+});
+
+function filterRoom(sortBy) {
+
+    var url = baseurl + "booking";
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    const formData = new FormData();
+
+    const formJSON = Object.fromEntries(formData.entries());
+    formJSON.checkInDate = requestObj.checkInDate
+    formJSON.checkOutDate = requestObj.checkOutDate
+    formJSON.guest = requestObj.guest
+    formJSON.totalNoOfRooms = requestObj.totalNoOfRooms
+    formJSON.sortOrder = sortBy;
+    var jsonString = JSON.stringify(formJSON, null, 2);
+    xhr.send(jsonString);
+
+    xhr.onreadystatechange = function () {
+        var response = xhr.responseText;
+        var responseObj = JSON.parse(response);
+        if (xhr.readyState === 4) {
+
+            var response = xhr.responseText;
+            var responseObj = JSON.parse(response);
+
+            // Check if the login was successful before storing in local storage
+            if (responseObj.message == "Successful") {
+                // Store the response object in local storage
+                localStorage.setItem('roomAvailability', JSON.stringify(responseObj.detail));
+                localStorage.setItem('searchRequest', jsonString);
+                window.open("rooms.html", "_self");
+
+            }
+
+        }
+    };
+
+
+
+
+}
+
+// Check if a value is stored in localStorage and set it as the selected option
+const storedValue = localStorage.getItem("sortOrder");
+if (storedValue) {
+    selectElement.value = storedValue;
+}

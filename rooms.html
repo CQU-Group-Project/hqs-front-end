@@ -108,7 +108,27 @@
 
     <!-- Hotel Rooms  -->
     <section id="pricing">
-        <div class=" container  py-5 my-5 mt-5">
+        <div class=" container   my-5 mt-5">
+
+            <div class="row">
+
+                <div class="col-lg-9 col-sm-12 col-12 ">
+
+                   <span id="showing"></span>
+
+                </div>
+
+                <div class="col-lg-3 col-sm-12 col-12 pb-4">
+                    
+                    <select class="form-select p-3" id="filter-rooms" name="sortOrder" required>
+                        <option value="" disabled>Select your choice</option>
+                        <option value="Relevance" >Sort By: Relevance</option>
+                        <option value="Desc">Price: High to Low</option>
+                        <option value="Asc">Price: Low to High</option>
+                    </select>
+                </div>
+
+            </div>
 
             <div class="row py-4" id="pricing-container">
 
