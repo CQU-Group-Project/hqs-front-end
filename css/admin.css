@@ -304,6 +304,11 @@ pre {
   font-size: 0.875em;
 }
 
+.bc{
+  text-decoration: none !important;
+}
+
+
 pre code {
   font-size: inherit;
   color: inherit;
@@ -5003,6 +5008,7 @@ fieldset:disabled .btn {
 .card-group>.card {
   margin-bottom: var(--bs-card-group-margin);
 }
+
 
 @media (min-width: 576px) {
   .card-group {

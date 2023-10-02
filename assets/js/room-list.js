@@ -64,7 +64,8 @@ function getRoomList() {
                         <td>${rowData.clean}</td>
                         <td>${rowData.createdDate[0]}- ${rowData.createdDate[1]}- ${rowData.createdDate[2]}</td>
                         <td> 
-                            <a href="/admin/room/room-list.html?deleteId= ${rowData.id}" class="delete-room" id="delete-room" data-id="${rowData.id}">Delete</a>
+                            <a href="/admin/room/room-list.html?deleteId= ${rowData.id}">Delete</a>
+                            <a href="/admin/room/room-edit.html?roomId= ${rowData.id}">Edit</a>
                         </td>
                     `;
 

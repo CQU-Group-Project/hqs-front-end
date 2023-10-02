@@ -9,18 +9,21 @@ var savedUserResponse = localStorage.getItem('userResponse');
 const today = new Date().toISOString().split('T')[0];
 
 // Set min date for checkInDate input
-document.getElementById('checkInDate').setAttribute('min', today);
+if (document.getElementById('checkInDate')) {
+    document.getElementById('checkInDate').setAttribute('min', today);
 
-// Add an event listener to checkInDate input to update min date for checkOutDate
-document.getElementById('checkInDate').addEventListener('change', function () {
-    // Get the selected checkInDate
-    const selectedCheckInDate = this.value;
-    // Calculate the next day
-    const nextDay = new Date(selectedCheckInDate);
-    nextDay.setDate(nextDay.getDate() + 1);
-    // Set min date for checkOutDate input as the next day
-    document.getElementById('checkOutDate').setAttribute('min', nextDay.toISOString().split('T')[0]);
-});
+    // Add an event listener to checkInDate input to update min date for checkOutDate
+    document.getElementById('checkInDate').addEventListener('change', function () {
+        // Get the selected checkInDate
+        const selectedCheckInDate = this.value;
+        // Calculate the next day
+        const nextDay = new Date(selectedCheckInDate);
+        nextDay.setDate(nextDay.getDate() + 1);
+        // Set min date for checkOutDate input as the next day
+        document.getElementById('checkOutDate').setAttribute('min', nextDay.toISOString().split('T')[0]);
+    });
+}
+
 
 
 if (!savedUserResponse) {

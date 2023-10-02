@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>HQS - Dashboard</title>
+
+    <!--Bootstrap ================================================== -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> -->
+
+    <!-- Datatables -->
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <!-- Styles -->
+    <link href="../../css/admin.css" rel="stylesheet" />
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body class="sb-nav-fixed">
+    <!-- Side navbar -->
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="../dashboard.html">Hotel Queensland</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href=""><i
+                class="fas fa-bars"></i></button>
+
+        <div class="ms-auto">
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+
+            </ul>
+
+            <div class="d-flex mt-5 mt-lg-0 ps-lg-5 align-items-center justify-content-center ">
+
+                <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" id="logout">
+                    <li class="nav-item dropdown">
+                        <a class=" dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="text-decoration: none;
+                                            color: white;
+                                        ">
+                            <span id="username">Deependra</span>
+                            <i class="fas fa-user fa-fw"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" id="logout-employee">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+
+                        <div class="col-mb-4 text-center">
+                            <img width="100" height="100" src="https://img.icons8.com/bubbles/100/user.png"
+                                alt="user" />
+
+                            <p>Welcome, Admin</p>
+                        </div>
+
+                        <!-- <div class="sb-sidenav-menu-heading">Core</div> -->
+                        <a class="nav-link" href="../../admin/dashboard.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+
+                        <a class="nav-link" href="../../admin/guest-list.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-tie"></i></div>
+                            Guests
+                        </a>
+                        <!-- Employee Options -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Employee
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="employee-add.html">Add Employee</a>
+                                <a class="nav-link" href="employee-list.html">List Employee</a>
+                            </nav>
+                        </div>
+
+                        <!-- Rooms Option -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#roomCollapseLayouts" aria-expanded="false"
+                            aria-controls="roomCollapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Room
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="roomCollapseLayouts" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="../room/room-add.html">Add Room</a>
+                                <a class="nav-link" href="../room/room-list.html">List Room</a>
+                            </nav>
+                        </div>
+
+                        <!-- Booking Option -->
+                        <a class="nav-link" href="../booking/booking-approved.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-tie"></i></div>
+                            Bookings
+                        </a>
+
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">Employee Edit</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">
+                            <a href="../dashboard.html" style="text-decoration: none; color:#94ca21">Dashboard</a>/
+                            <a href="employee-list.html" style="text-decoration: none; color:#94ca21">Employee List</a>/
+                            Employee Edit
+                        </li>
+                    </ol>
+
+                    <div class="card mb-4">
+                        <div class="card-body" style="padding: 40px;">
+                            <form name="employeeCreateForm" id="employeeCreateForm">
+
+                                <div class="mb-3">
+                                    <!-- First name and Last name -->
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <label for="firstname" class="label-style text-capitalize form-label">First
+                                                Name <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control p-3" id="firstName"
+                                                    placeholder="Enter first name " name="firstName" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <label for="lastname" class="label-style text-capitalize form-label">Last
+                                                Name <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control p-3" id="lastName"
+                                                    placeholder="Enter last name " name="lastName" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <!-- Email and phone number -->
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <label for="email" class="label-style text-capitalize form-label">Email
+                                                Address</label>
+                                            <div class="input-group date">
+                                                <input type="email" class="form-control p-3" id="email"
+                                                    placeholder="Enter email address " name="email" required readonly disabled/>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <label for="phone" class="label-style text-capitalize form-label">Phone
+                                                Number <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <!-- <input type="text" class="form-control p-3" id="phone"
+                                                    placeholder="Enter Phone Number " name="phone" required /> -->
+                                                <input type="tel" class="form-control p-3" id="phone" name="phone"
+                                                    pattern="[0-9]{10}" placeholder="Enter Phone Number Eg. 0451909197"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <!-- State and suburb -->
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <label for="state" class="label-style text-capitalize form-label">State
+                                                <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <select class="form-select p-3" id="state" name="state" required>
+                                                    <option value="" disabled selected>Select a state</option>
+                                                    <option value="NSW">New South Wales</option>
+                                                    <option value="VIC">Victoria</option>
+                                                    <option value="QLD">Queensland</option>
+                                                    <option value="WA">Western Australia</option>
+                                                    <option value="SA">South Australia</option>
+                                                    <option value="TAS">Tasmania</option>
+                                                    <option value="NT">Northern Territory</option>
+                                                    <option value="ACT">Australian Capital Territory</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-12">
+                                            <label for="city" class="label-style text-capitalize form-label">Suburb
+                                                <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control p-3" id="city"
+                                                    placeholder="Enter suburb" name="city" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <!-- Postcode and street -->
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <label for="postcode"
+                                                class="label-style text-capitalize form-label">Postcode
+                                                <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="number" class="form-control p-3" id="postalCode"
+                                                    placeholder="Enter postcode " name="postalCode" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <label for="address" class="label-style text-capitalize form-label">Street
+                                                <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control p-3" id="address"
+                                                    placeholder="Enter street" name="address" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <!-- Position and Hired Date -->
+                                    <div class="row">
+                                        <div class="col-md-4 col-12">
+                                            <label for="position"
+                                                class="label-style text-capitalize form-label">Position
+                                                <span class="required">*</span></label>
+                                            <div class="input-group date">
+                                                <input type="position" class="form-control p-3" id="position"
+                                                    placeholder="Enter position " name="position" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 col-12">
+                                            <label for="hiredDate" class="label-style text-capitalize form-label">Hired
+                                                Date <span class="required">*</span></label>
+                                            <div class="input-group  date">
+                                                <input type="date" class="form-control p-3 " id="hireDate"
+                                                    name="hireDate" placeholder="Select Hired Date" required />
+                                            </div>
+
+                                            <span id="passwordError" style="color: rgba(255, 0, 0, 0.639);"></span>
+                                        </div>
+
+                                        <div class="col-md-4 col-12">
+                                            <label for="salary" class="label-style text-capitalize form-label">Salary
+                                                <span class="required">*</span></label>
+                                            <div class="input-group  date">
+                                                <input type="number" class="form-control p-3 " id="salary" name="salary"
+                                                    placeholder="Enter salary" required />
+                                            </div>
+
+                                            <span id="passwordError" style="color: rgba(255, 0, 0, 0.639);"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid gap-2 mt-4">
+                                    <button id="registerBtn" class="btn btn-primary " type="submit">Edit
+                                        Employee</button>
+                                </div>
+
+                                <div id="snackbar"></div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="../../assets/js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script src="../../assets/js/employee-edit.js"></script>
+</body>
+
+</html>

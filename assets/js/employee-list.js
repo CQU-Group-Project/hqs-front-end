@@ -62,6 +62,8 @@ function getEmployeeList() {
                         <td>${rowData.createdDate[0]}- ${rowData.createdDate[1]}- ${rowData.createdDate[2]}</td>
                         <td> 
                              <a href="/admin/employee/employee-list.html?deleteId= ${rowData.id}" >Delete</a>
+                             <a href="/admin/employee/employee-edit.html?employeeId= ${rowData.id}" >Edit</a>
+
                         </td>
                     `;
                     dataTableBody.appendChild(newRow);
